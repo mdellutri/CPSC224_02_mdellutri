@@ -1,7 +1,7 @@
 /***************
 Homework #2
 Due Date: 2/11/2019
-Names: Mason Dellutri
+Names: Mason Dellutri, Sam Schoenberg
 ********************/
 
 //A program that plays hangman
