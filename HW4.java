@@ -118,9 +118,10 @@ public class HW4 extends JFrame{
             while(ballY < 450) {
                 if (iterations % 100000 == 0) {
                     ballY++;
+                    repaint();
                 }
                 iterations++;
-                repaint();
+                
             }
         }
         
@@ -142,14 +143,6 @@ public class HW4 extends JFrame{
     {
         public void mouseDragged(MouseEvent e)
         {
-            // Calculate the size of the rectangle.
-            // width = e.getX() - currentX;
-            // height = e.getY() - currentY;
-            // Get the mouse cursor coordinates.
-            // currentX = e.getX();
-            // currentY = e.getY();
-            // // Repaint the window.
-            // repaint();
         }
         
         /**
