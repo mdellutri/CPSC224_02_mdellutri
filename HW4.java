@@ -7,6 +7,7 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.Timer;
+//import java.util.concurrent
 public class HW4 extends JFrame{
     private int currentX = 250; // Mouse cursor's X position
     private int currentY = 250; // Mouse cursor's Y position
@@ -46,8 +47,6 @@ public class HW4 extends JFrame{
         g.setColor(Color.orange);
         g.fillOval(100, 100, 50, 50);
         
-        g.setColor(Color.red);
-        g.fillOval(ballX, ballY, ballWidth, ballHeight);
             
         g.setColor(Color.yellow);
         int scalingX = (250-currentX)/10;
@@ -83,6 +82,8 @@ public class HW4 extends JFrame{
         int points4 = 3;
         g.fillPolygon(xValues4, yValues4, points4);
         
+        g.setColor(Color.red);
+        g.fillOval(ballX +(scalingX*2), ballY+(scalingY*2), ballWidth, ballHeight);
     }
     
     /**
@@ -108,13 +109,19 @@ public class HW4 extends JFrame{
         
         public void mouseClicked(MouseEvent e)
         {
+
         }
         
         public void mouseReleased(MouseEvent e)
         {
-            timer.start();
-            repaint();
-          
+            int iterations = 0;
+            while(ballY < 450) {
+                if (iterations % 100000 == 0) {
+                    ballY++;
+                }
+                iterations++;
+                repaint();
+            }
         }
         
         public void mouseEntered(MouseEvent e)
