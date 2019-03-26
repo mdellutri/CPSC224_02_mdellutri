@@ -6,11 +6,18 @@
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.Timer;
 public class HW4 extends JFrame{
     private int currentX = 250; // Mouse cursor's X position
     private int currentY = 250; // Mouse cursor's Y position
     private int width = 0;    // The rectangle's width
     private int height = 0;   // The rectangle's height
+    private int ballWidth = 0;
+    private int ballHeight = 0;
+    private int delay = 10;
+    private int ballX = 0;
+    private int ballY = 0;
+    
     HW4()
     {
         init();
@@ -37,6 +44,9 @@ public class HW4 extends JFrame{
         
         g.setColor(Color.orange);
         g.fillOval(100, 100, 50, 50);
+        
+        g.setColor(Color.red);
+        g.fillOval(currentX, currentY, ballWidth, ballHeight);
         
         g.setColor(Color.yellow);
         int scalingX = (250-currentX)/10;
@@ -71,6 +81,7 @@ public class HW4 extends JFrame{
         int yValues4[] = {200 + (scalingY/4), 145 + (scalingY/4), 200 + (scalingY/4)};
         int points4 = 3;
         g.fillPolygon(xValues4, yValues4, points4);
+        
     }
     
     /**
@@ -82,9 +93,10 @@ public class HW4 extends JFrame{
     {
         public void mousePressed(MouseEvent e)
         {
-            currentX = e.getX() - 100;
-            currentY = e.getY() - 100;
-            // Repaint the window.
+            ballX = e.getX();
+            ballY = e.getY();
+            ballWidth = 50;
+            ballHeight = 50;
             repaint();
         }
         
@@ -95,15 +107,15 @@ public class HW4 extends JFrame{
         
         public void mouseClicked(MouseEvent e)
         {
-
         }
         
         public void mouseReleased(MouseEvent e)
-        {
-            currentX = e.getX() + 100;
-            currentY = e.getY() + 100;
-            // Repaint the window.
+        {/*
+            protected Timer timer;
+            timer = new Timer(delay, this);
+            timer.start();
             repaint();
+          */
         }
         
         public void mouseEntered(MouseEvent e)
