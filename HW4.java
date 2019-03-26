@@ -17,6 +17,7 @@ public class HW4 extends JFrame{
     private int delay = 10;
     private int ballX = 0;
     private int ballY = 0;
+    protected Timer timer;
     
     HW4()
     {
@@ -46,8 +47,8 @@ public class HW4 extends JFrame{
         g.fillOval(100, 100, 50, 50);
         
         g.setColor(Color.red);
-        g.fillOval(currentX, currentY, ballWidth, ballHeight);
-        
+        g.fillOval(ballX, ballY, ballWidth, ballHeight);
+            
         g.setColor(Color.yellow);
         int scalingX = (250-currentX)/10;
         int scalingY = (250-currentY)/10;
@@ -110,12 +111,10 @@ public class HW4 extends JFrame{
         }
         
         public void mouseReleased(MouseEvent e)
-        {/*
-            protected Timer timer;
-            timer = new Timer(delay, this);
+        {
             timer.start();
             repaint();
-          */
+          
         }
         
         public void mouseEntered(MouseEvent e)
